@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#03050c">
+<title>NEXUS — The Hidden City</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@500;600&display=swap">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="scan"></div>
+
+<div id="load"><h1>NEXUS</h1><div class="barw"><i id="bar"></i></div><p>Building the city…</p></div>
+<div id="err" class="ov" hidden><div class="panel box"><h2>NEXUS can’t start</h2><p></p></div></div>
+
+<div id="intro" hidden>
+  <div class="ic">
+    <h1 class="ln" style="--d:.4">NEXUS</h1>
+    <h3 class="ln" style="--d:1.6">The Hidden City</h3>
+    <p class="ln sub" style="--d:3">Beneath the neon, a city is waiting to be remembered.</p>
+    <p class="ln sub" style="--d:4.6">Four seals. One gate. One secret.</p>
+    <button id="play" class="pri">Play</button>
+  </div>
+  <button id="skip">Skip intro</button>
+</div>
+
+<div id="hud" hidden>
+  <div id="tl">
+    <div class="panel" id="stat"><b id="lv">LV 1</b><div class="xp"><i id="xpb"></i></div><span id="dc">◈ 0</span></div>
+    <div class="panel" id="mis"><ol id="ms"></ol><p id="hint"></p></div>
+  </div>
+  <button id="bm" class="panel">Menu</button>
+  <div id="pr" class="panel" hidden></div>
+  <div id="toasts"></div>
+  <div id="touch">
+    <div id="stick"><i id="knob"></i></div>
+    <button id="bj">Jump</button><button id="br">Run</button><button id="ba">Act</button>
+  </div>
+</div>
+
+<div id="menu" class="ov" hidden>
+  <div class="panel box big">
+    <h2>Paused</h2>
+    <div class="cols">
+      <div><h3>Map</h3><canvas id="map" width="200" height="200"></canvas></div>
+      <div><h3>Inventory</h3><ul id="inv"></ul></div>
+    </div>
+    <h3>Settings</h3>
+    <label>Sound <input type="checkbox" id="snd"></label>
+    <label>Look sensitivity <input type="range" id="sens" min=".5" max="2" step=".1"></label>
+    <label>Graphics <select id="qual"><option value="0">Low</option><option value="1">Medium</option><option value="2">High</option></select></label>
+    <div class="row"><button id="fs">Fullscreen</button><button id="rs" class="warn">Reset progress</button><button id="rsm" class="pri">Resume</button></div>
+  </div>
+</div>
+
+<div id="holo" class="ov" hidden>
+  <div class="panel box holo"><h2 id="ht"></h2><p id="hbd"></p><div class="row"><button id="hb" class="pri"></button><button id="hx">Close</button></div></div>
+</div>
+<div id="fade"></div>
+
+<noscript><div class="ov"><div class="panel box"><h2>JavaScript required</h2><p>NEXUS runs in the browser and needs JavaScript enabled.</p></div></div></noscript>
+<script>setTimeout(function(){if(!window.__nx){document.getElementById('load').hidden=true;document.getElementById('err').hidden=false;document.querySelector('#err p').textContent='The 3D engine did not load. Check your connection, serve the page over http(s) rather than file://, and reload.'}},15000)</script>
+<script type="module" src="main.js"></script>
+</body>
+</html>
